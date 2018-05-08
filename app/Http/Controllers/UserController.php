@@ -7,7 +7,6 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\ChangeRequest;
 
 use Illuminate\Support\Facades\Hash;
-use Socialite
 
 use App\Users;
 use Illuminate\Http\Request;
