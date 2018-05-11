@@ -92,7 +92,7 @@ class SocialController extends Controller
 
 
 
-        $user = Users::where('FacebookProvider', $providerId)->first();
+        $user = Users::where('FacebookProvider', '=',$providerId)->first();
 
         return $user;
 
