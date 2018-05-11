@@ -49,7 +49,8 @@ class SocialController extends Controller
         $user = $this->checkIfProviderIdExists($providerUser->id);
 
         if($user){
-          session(['id' =>  1,'name'=>  'MMM','password'=>  $user->confirmationCode,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
+          $user2 = where('FacebookProvider', '=',$providerId)->first();
+          session(['id' =>  1,'name'=>  'MMM','password'=>  $user2->password,'confirmation'=>  $user2->confirmation,'mail'=> $user2->mail]);
             return redirect('/');
         }
 
