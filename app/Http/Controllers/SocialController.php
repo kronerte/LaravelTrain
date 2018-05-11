@@ -56,10 +56,9 @@ class SocialController extends Controller
         if($providerUser->email !== null){
             //Je rajoute le provider_id a l'utilisateur dont le mail
             //correspond et je redirige vers la page appelé
-            $user = User::where('email', $providerUser->email)->first();
+            $user = Users::where('mail', $providerUser->email)->first();
             if($user){
-                $field = $provider.'_id';
-                $user->$field = $providerUser->id;
+                $user->FacebookProvider = $providerUser->id;
                 $user->save();
                 Auth::guard()->login($user, true); // true pour garder l'utilisateur connecté ( remember me )
                 return redirect('/');
@@ -67,7 +66,7 @@ class SocialController extends Controller
         }
 
         //Je crée l'utilisateur si j'arrive jusque là ;)
-        $user = User::create([
+        $user = Users::create([
             'name' => $providerUser->name,
             'email' => $providerUser->email,
             $provider.'_id' => $providerUser->id,
