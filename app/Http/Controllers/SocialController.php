@@ -61,7 +61,7 @@ class SocialController extends Controller
             if($user){
                 $user->FacebookProvider = $providerUser->id;
                 $user->save();
-                session(['id' =>  2,'name'=>  'MMM','password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
+                session(['id' =>  2,'name'=>  'MMM','password'=>  $user->FacebookProvider,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
                 return redirect('/');
             }
         }
