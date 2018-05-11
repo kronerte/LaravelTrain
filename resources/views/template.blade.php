@@ -72,7 +72,7 @@
                 <div class="top-right links">
 
                     @if (session()->has('name'))
-                        {{session('name')}} {{session('id')}}{{session('confirmation')}}{{session('password')}}{{session('mail')}}
+                        {{session('name')}} {{session('mail')}}
                         <a href="{{ route('changepswd') }}">Changer mot de passe</a>
                         <a href="{{ route('deconnexion') }}">Se déconnecter</a>
                     @else
