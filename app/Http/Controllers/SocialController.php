@@ -73,6 +73,7 @@ class SocialController extends Controller
             'FacebookProvider' => $providerUser->id,
             'confirmation' => 1,
         ]);
+        $user->save();
         if($user){
         session(['id' =>  $user->id,'name'=>  $user->pseudo,'password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
         }
