@@ -100,8 +100,9 @@
                         <a href="{{ route('register') }}">Register</a>
                     @endif
                 </div>
+                @yield('content')
         </div>
-          @yield('content')
+
 
 
 
