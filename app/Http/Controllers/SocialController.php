@@ -50,6 +50,7 @@ class SocialController extends Controller
 
         if($user){
             Session::put('id', $user->id);
+            Session::put('name',  $user->pseudo);
             return redirect('/');
         }
 
@@ -62,6 +63,7 @@ class SocialController extends Controller
                 $user->FacebookProvider = $providerUser->id;
                 $user->save();
                 Session::put('id', $user->id); // true pour garder l'utilisateur connecté ( remember me )
+                Session::put('name',  $user->pseudo);
                 return redirect('/');
             }
         }
@@ -72,8 +74,10 @@ class SocialController extends Controller
             'mail' => $providerUser->email,
             $provider.'_id' => $providerUser->id,
         ]);
-
-        Session::put('id', 15);
+        if($user){
+          Session::put('id',  $user->id);
+          Session::put('name',  $user->pseudo);
+        }
         return redirect('/');
 
     }
