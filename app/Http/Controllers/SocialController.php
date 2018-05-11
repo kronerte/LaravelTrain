@@ -41,12 +41,10 @@ class SocialController extends Controller
 
         //Ici vous pouvez dd($providedUser) pour voir à quoi ressemble
         //les données renvoyées selon le provider
-        $user = Users::where('FacebookProvider', $providerId)->first();
         //Si j'ai déjà le provider_id dans la base de donnée
         //je connecte directement l'utilisateur
-        $user = $this->checkIfProviderIdExists($providerUser->id);
 
-        if($user){
+        if(isset($user)){
           //
             session('id') = $user->id;
             return redirect('/');

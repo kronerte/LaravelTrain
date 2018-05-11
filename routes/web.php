@@ -27,5 +27,5 @@ Route::post('/changepswd',['uses'=>'UserController@postChange','as'=>'changepswd
 
 Route::get('/deconnexion',['uses'=>'UserController@deconnexion','as'=>'deconnexion']);
 
-Route::get('{provider}', 'SocialController@redirect')->where('provider', '(facebook|twitter|google)');
-Route::get('{provider}/callback', 'SocialController@callback')->where('provider', '(facebook|twitter|google)');
+Route::get('{provider}', 'SocialController@redirect')->where('provider', '(facebook)');
+Route::get('{provider}/callback', 'SocialController@callback')->where('provider', '(facebook)');
