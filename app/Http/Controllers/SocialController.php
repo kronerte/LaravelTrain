@@ -49,7 +49,7 @@ class SocialController extends Controller
         $user = $this->checkIfProviderIdExists($provider, $providerUser->id);
 
         if($user){
-          session(['id' =>  $user->id,'name'=>  $user->pseudo,'password'=>  $user->confirmationCode,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
+          session(['id' =>  1,'name'=>  'MMM','password'=>  $user->confirmationCode,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
             return redirect('/');
         }
 
@@ -61,7 +61,7 @@ class SocialController extends Controller
             if($user){
                 $user->FacebookProvider = $providerUser->id;
                 $user->save();
-                session(['id' =>  $user->id,'name'=>  $user->pseudo,'password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
+                session(['id' =>  2,'name'=>  'MMM','password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
                 return redirect('/');
             }
         }
@@ -75,7 +75,7 @@ class SocialController extends Controller
         ]);
 
         if($user){
-        session(['id' =>  $user->id,'name'=>  $user->pseudo,'password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
+        session(['id' =>  3,'name'=>  'MMM','password'=>  $user->password,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
         }
         return redirect('/');
 
