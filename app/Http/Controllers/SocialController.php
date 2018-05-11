@@ -41,7 +41,7 @@ class SocialController extends Controller
             throw $e;
         }
 
-        //Ici vous pouvez dd($providedUser) pour voir à quoi ressemble
+        
         //les données renvoyées selon le provider
 
         //Si j'ai déjà le provider_id dans la base de donnée
