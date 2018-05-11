@@ -69,7 +69,7 @@ class SocialController extends Controller
         //Je crée l'utilisateur si j'arrive jusque là ;)
         $user = Users::create([
             'pseudo' => $providerUser->name,
-            'email' => $providerUser->email,
+            'mail' => $providerUser->email,
             $provider.'_id' => $providerUser->id,
         ]);
 
