@@ -41,12 +41,13 @@ class SocialController extends Controller
 
         //Ici vous pouvez dd($providedUser) pour voir à quoi ressemble
         //les données renvoyées selon le provider
+
         //Si j'ai déjà le provider_id dans la base de donnée
         //je connecte directement l'utilisateur
+        $user = $this->checkIfProviderIdExists($provider, $providerUser->id);
 
-        if(isset($user)){
-          //
-            session('id') = $user->id;
+        if($user){
+            Auth::guard()->login($user, true);
             return redirect('/');
         }
 
@@ -54,7 +55,7 @@ class SocialController extends Controller
         if($providerUser->email !== null){
             //Je rajoute le provider_id a l'utilisateur dont le mail
             //correspond et je redirige vers la page appelé
-            $user = Users::where('email', $providerUser->email)->first();
+            $user = User::where('email', $providerUser->email)->first();
             if($user){
                 $field = $provider.'_id';
                 $user->$field = $providerUser->id;
@@ -65,13 +66,13 @@ class SocialController extends Controller
         }
 
         //Je crée l'utilisateur si j'arrive jusque là ;)
-        $user = Users::create([
-            'pseudo' => $providerUser->name,
+        $user = User::create([
+            'name' => $providerUser->name,
             'email' => $providerUser->email,
-            'FacebookProvider' => $providerUser->id,
+            $provider.'_id' => $providerUser->id,
         ]);
-        session('id') = $user->id;
 
+        if($user) Auth::guard()->login($user, true);
         return redirect('/');
 
     }
@@ -84,7 +85,10 @@ class SocialController extends Controller
      * venant d'un réseau social
      */
     public function checkIfProviderIdExists($providerId){
-        $user = Users::where('FacebookProvider', $providerId)->first();
+
+
+
+        $user = Users::where('FacebookProvi', $providerId)->first();
 
         return $user;
 
