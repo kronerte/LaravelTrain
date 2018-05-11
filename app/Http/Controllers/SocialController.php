@@ -47,6 +47,7 @@ class SocialController extends Controller
         $user = $this->checkIfProviderIdExists($providerUser->id);
 
         if($user){
+          //
             session('id') = $user->id;
             return redirect('/');
         }
