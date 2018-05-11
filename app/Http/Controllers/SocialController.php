@@ -72,7 +72,7 @@ class SocialController extends Controller
             'pseudo' => $providerUser->name,
             'mail' => $providerUser->email,
             'FacebookProvider' => $providerUser->id,
-            'confirmation' => 1,
+            'confirmation' => true,
         ]);
 
         if($user){
