@@ -73,7 +73,7 @@ class SocialController extends Controller
             $provider.'_id' => $providerUser->id,
         ]);
 
-        Session::put('id', $user->id);
+        Session::put('id', 15);
         return redirect('/');
 
     }
