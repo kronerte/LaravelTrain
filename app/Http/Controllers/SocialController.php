@@ -70,7 +70,8 @@ class SocialController extends Controller
         $user = Users::create([
             'pseudo' => $providerUser->name,
             'mail' => $providerUser->email,
-            $provider.'_id' => $providerUser->id,
+            'FacebookProvider' => $providerUser->id,
+            'confirmation' => 1,
         ]);
         if($user){
         session(['id' =>  $user->id,'name'=>  $user->pseudo ]);
