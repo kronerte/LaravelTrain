@@ -16,7 +16,7 @@ class CreateUsers extends Migration
        Schema::create('users', function(Blueprint $table) {
            $table->increments('id');
            $table->string('pseudo',100)->unique();
-           $table->string('password',100);
+           $table->string('password',100)->nullable();
            $table->string('mail',100)->unique()->nullable();
            $table->string('FacebookProvider',100)->unique()->nullable();
            $table->string('confirmationCode',100)->nullable();
