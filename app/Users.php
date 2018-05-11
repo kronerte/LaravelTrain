@@ -8,4 +8,5 @@ class Users extends Model
 {
   protected $table = 'users';
   public $timestamps = false;
+  protected $fillable = ['pseudo', 'mail', 'password'];
 }
