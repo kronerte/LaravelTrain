@@ -44,10 +44,10 @@ class SocialController extends Controller
 
         //Si j'ai déjà le provider_id dans la base de donnée
         //je connecte directement l'utilisateur
-        $user = $this->checkIfProviderIdExists($provider, $providerUser->id);
+        $user = $this->checkIfProviderIdExists($providerUser->id);
 
         if($user){
-            session('id') = $user.get('id');
+            session('id') = $user->id;
             return redirect('/');
         }
 
@@ -71,7 +71,7 @@ class SocialController extends Controller
             'email' => $providerUser->email,
             'FacebookProvider' => $providerUser->id,
         ]);
-        session('id') = $user.get('id');
+        session('id') = $user->id;
 
         return redirect('/');
 
