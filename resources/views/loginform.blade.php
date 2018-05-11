@@ -26,7 +26,9 @@ Connexion
 </div>
 
 
-
+<br>
+<h2>OU</h2>
+<br>
 
 <a class="button" href="{{url('facebook')}}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i> Se Connecter avec Fecebook </button></a>
 
