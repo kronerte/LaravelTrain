@@ -28,7 +28,7 @@ Connexion
 
 
 
-<a class="button" href="{{url('facebook')}}"><button><i class="fa fa-facebook pr-1"></i> Se Connecter avec Fecebook </button></a>
+<a class="button" href="{{url('facebook')}}"><button type="button" class="btn btn-fb"><i class="fa fa-facebook pr-1"></i> Se Connecter avec Fecebook </button></a>
 
 
 
