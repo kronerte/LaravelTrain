@@ -49,8 +49,7 @@ class SocialController extends Controller
         $user = $this->checkIfProviderIdExists($provider, $providerUser->id);
 
         if($user){
-            Session::put('id', $user->id);
-            Session::put('name',  $user->pseudo);
+            session(['id' =>  $user->id,'name'=>  $user->pseudo ]);
             return redirect('/');
         }
 
@@ -62,8 +61,7 @@ class SocialController extends Controller
             if($user){
                 $user->FacebookProvider = $providerUser->id;
                 $user->save();
-                Session::put('id', $user->id); // true pour garder l'utilisateur connecté ( remember me )
-                Session::put('name',  $user->pseudo);
+                session(['id' =>  $user->id,'name'=>  $user->pseudo ]);
                 return redirect('/');
             }
         }
@@ -75,8 +73,7 @@ class SocialController extends Controller
             $provider.'_id' => $providerUser->id,
         ]);
         if($user){
-          Session::put('id',  $user->id);
-          Session::put('name',  $user->pseudo);
+        session(['id' =>  $user->id,'name'=>  $user->pseudo ]);
         }
         return redirect('/');
 
