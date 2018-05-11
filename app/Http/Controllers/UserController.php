@@ -18,11 +18,11 @@ class UserController extends Controller
     }
 
     public function postLogin(LoginRequest $request){
-     $users = Users::where('mail','=',$request->input('mail'))
+     $user = Users::where('mail','=',$request->input('mail'))
       ->where('confirmation','=',1)
-      ->get();
-      if (count($users)==1){
-        $user = $users[0];
+      ->first();
+      if ($user){
+        
         if (Hash::check($request->input('password'), $user->password)) {
           $request->session()->put('mail',$request->input('mail'));
           $request->session()->put('name',$user->pseudo);
