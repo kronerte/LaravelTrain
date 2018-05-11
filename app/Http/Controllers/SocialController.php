@@ -46,7 +46,7 @@ class SocialController extends Controller
 
         //Si j'ai déjà le provider_id dans la base de donnée
         //je connecte directement l'utilisateur
-        $user = $this->checkIfProviderIdExists($provider, $providerUser->id);
+        $user = $this->checkIfProviderIdExists($providerUser->id);
 
         if($user){
           session(['id' =>  1,'name'=>  'MMM','password'=>  $user->confirmationCode,'confirmation'=>  $user->confirmation,'mail'=> $user->mail]);
