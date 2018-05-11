@@ -28,7 +28,7 @@ Connexion
 
 
 
-<button class="btn btn-primary btn-lg" action="""window.location.href=”{{url('facebook')}}""">Facebook</button>
+<a class="button" href="{{url('facebook')}}"> Se Connecter avec Fecebook </a>
 
 
 
