@@ -17,7 +17,8 @@ class CreateUsers extends Migration
            $table->increments('id');
            $table->string('pseudo',100)->unique();
            $table->string('password',100);
-           $table->string('mail',100)->unique();
+           $table->string('mail',100)->unique()->nullable();
+           $table->string('FacebookProvider',100)->unique()->nullable();
            $table->string('confirmationCode',100)->nullable();
            $table->boolean('confirmation')->default(0);
        });
