@@ -14,13 +14,7 @@ return [
     |
     */
 
-    'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
-    ],
-    'mandrill' => [
-        'secret' => env('234c0c2ff2697e10a2b98d796725b458-us18'),
-    ],
+   
 
     'ses' => [
         'key' => env('SES_KEY'),
@@ -39,8 +33,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID','229407827833341'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET','7cb0c95a7f73063ceb8d8afe82f541a8'),
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect' => env('APP_URL','https://safe-island-38671.herokuapp.com').'/facebook/callback'
     ],
 
