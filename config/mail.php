@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'etienne.kronert@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'eiszwei 42'),
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME','etienne.kronert@gmail.com'),
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => env('MAIL_PASSWORD','vuhrlcrgcmjqoaoa'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
